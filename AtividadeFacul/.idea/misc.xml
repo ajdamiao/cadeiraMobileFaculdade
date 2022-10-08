@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/projetos android/AtividadeFacul/app/src/main/res/layout/activity_main.xml" value="0.3484375" />
+        <entry key="..\:/projetos android/AtividadeFacul/app/src/main/res/layout/rview_album.xml" value="0.18541666666666667" />
+        <entry key="..\:/projetos android/AtividadeFacul/app/src/main/res/layout/rview_comments.xml" value="0.18541666666666667" />
+        <entry key="..\:/projetos android/AtividadeFacul/app/src/main/res/layout/rview_images.xml" value="0.27109375" />
+        <entry key="..\:/projetos android/AtividadeFacul/app/src/main/res/layout/rview_itens.xml" value="0.3614583333333333" />
+        <entry key="..\:/projetos android/AtividadeFacul/app/src/main/res/layout/rview_post.xml" value="0.1762917933130699" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

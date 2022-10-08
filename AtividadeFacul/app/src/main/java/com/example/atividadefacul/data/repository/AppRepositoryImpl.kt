@@ -1,10 +1,7 @@
 package com.example.atividadefacul.data.repository
 
 import com.example.atividadefacul.data.UseCase
-import com.example.atividadefacul.model.Album
-import com.example.atividadefacul.model.Comments
-import com.example.atividadefacul.model.Image
-import com.example.atividadefacul.model.Post
+import com.example.atividadefacul.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -53,6 +50,18 @@ class AppRepositoryImpl: AppRepository {
     override suspend fun getImages(): Response<ArrayList<Image>> {
         return withContext(Dispatchers.IO) {
             makeRequest().getImages()
+        }
+    }
+
+    override suspend fun getTodos(): Response<ArrayList<Todo>> {
+        return withContext(Dispatchers.IO) {
+            makeRequest().getTodos()
+        }
+    }
+
+    override suspend fun getUsers(): Response<ArrayList<User>> {
+        return withContext(Dispatchers.IO) {
+            makeRequest().getUsers()
         }
     }
 }

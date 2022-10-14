@@ -25,6 +25,13 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getUsers()
 
         observers()
+
+
+
+
+
+
+
     }
 
     private fun observers() {

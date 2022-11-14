@@ -3,11 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/drawable/ic_dining.xml" value="0.361" />
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/drawable/ic_time.xml" value="0.361" />
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/drawable/shape_rview_recipe_item.xml" value="0.274" />
         <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/drawable/shape_toolbar.xml" value="0.286" />
-        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/layout/fragment_recipe_details.xml" value="0.3625" />
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/layout/rview_ingredients.xml" value="0.1" />
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/layout/rview_recipe_item.xml" value="0.3625" />
         <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/layout/toolbar.xml" value="0.3614583333333333" />
         <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3625" />
+        <entry key="..\:/projetos android/mobileFaculdade/RecipesApp/app/src/main/res/xml/network_security_config.xml" value="0.18541666666666667" />
       </map>
     </option>
   </component>

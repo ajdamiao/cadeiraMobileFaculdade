@@ -28,8 +28,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupObserver() {
         homeViewModel.recipeLiveData.observe(viewLifecycleOwner) { response ->
-            when(response) {
-                is ArrayList<*> -> { setupRecipeRecyclerView(response as ArrayList<Recipe>) }
+            when {
+                response.recipes.size != 0 -> {
+                    setupRecipeRecyclerView(response.recipes)
+                    binding.loading.visibility = View.GONE
+                    binding.recyclerView.visibility = View.VISIBLE
+                }
+                response.isLoading -> {
+                    binding.loading.visibility = View.VISIBLE
+                    binding.recyclerView.visibility = View.GONE
+                }
+                !response.isLoading -> {
+                    binding.loading.visibility = View.GONE
+                    binding.recyclerView.visibility = View.VISIBLE
+                }
+                response.error.isNotEmpty() -> { binding.loading.text = response.error}
             }
         }
     }
@@ -38,6 +51,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         recipesAdapter.addRecipe(recipesList)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = recipesAdapter
-
     }
 }

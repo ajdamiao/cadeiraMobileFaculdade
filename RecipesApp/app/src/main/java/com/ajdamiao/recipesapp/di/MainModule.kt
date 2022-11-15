@@ -1,6 +1,8 @@
 package com.ajdamiao.recipesapp.di
 
 import com.ajdamiao.recipesapp.data.repository.RepositoryIMPL
+import com.ajdamiao.recipesapp.data.usecase.GetRecipeDetailsUseCase
+import com.ajdamiao.recipesapp.data.usecase.GetRecipeListUseCase
 import com.ajdamiao.recipesapp.viewmodel.HomeViewModel
 import com.ajdamiao.recipesapp.viewmodel.RecipeDetailsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -10,15 +12,18 @@ val mainModule = module {
 
     single { RepositoryIMPL() }
 
+    single { GetRecipeListUseCase(repository = get()) }
+    single { GetRecipeDetailsUseCase(repository = get()) }
+
     viewModel {
         HomeViewModel(
-            repository = get()
+            getRecipeListUseCase = get()
         )
     }
 
     viewModel {
         RecipeDetailsViewModel(
-            repository = get()
+            getRecipeDetailsUseCase = get()
         )
     }
 }

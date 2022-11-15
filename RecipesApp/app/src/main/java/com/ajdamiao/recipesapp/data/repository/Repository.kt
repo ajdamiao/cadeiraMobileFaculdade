@@ -9,8 +9,8 @@ interface Repository {
 
     fun makeRequest(): ApiService
 
-    suspend fun getRecipesList() : Response<ArrayList<Recipe>>
+    suspend fun getRecipesList() : ArrayList<Recipe>
 
-    suspend fun getRecipeDetails(recipeId: String) : Response<RecipeDetails>
+    suspend fun getRecipeDetails(recipeId: String) : RecipeDetails
 
 }

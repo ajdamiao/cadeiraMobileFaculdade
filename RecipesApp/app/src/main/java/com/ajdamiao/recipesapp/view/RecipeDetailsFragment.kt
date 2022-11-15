@@ -32,10 +32,19 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
             recipeDetailsViewModel.getRecipeDetails(id)
         }
 
-        recipeDetailsViewModel.recipeDetails.observe(viewLifecycleOwner){
-            when(it) {
-                is RecipeDetails -> { setupDetails(it) }
+        recipeDetailsViewModel.recipeDetails.observe(viewLifecycleOwner){ response ->
+            when {
+                response.isLoading -> {
+                    println("Carregnado")
+                }
 
+                response.recipe?.imageType?.isNotEmpty() == true -> {
+                    setupDetails(response.recipe)
+                }
+
+                response.error.isNotEmpty() -> {
+                    println("ERROR")
+                }
             }
         }
     }

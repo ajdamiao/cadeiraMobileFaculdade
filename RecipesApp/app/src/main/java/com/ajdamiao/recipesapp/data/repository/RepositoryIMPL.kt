@@ -32,11 +32,11 @@ class RepositoryIMPL: Repository {
             .create(ApiService::class.java)
     }
 
-    override suspend fun getRecipesList(): Response<ArrayList<Recipe>> {
+    override suspend fun getRecipesList(): ArrayList<Recipe> {
         return makeRequest().getRecipesList()
     }
 
-    override suspend fun getRecipeDetails(recipeId: String): Response<RecipeDetails> {
+    override suspend fun getRecipeDetails(recipeId: String): RecipeDetails {
         return makeRequest().getRecipeDetails(recipeId)
     }
 }

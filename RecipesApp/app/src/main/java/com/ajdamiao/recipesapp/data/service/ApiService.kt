@@ -10,11 +10,11 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("findByIngredients?ingredients=meat")
-    suspend fun getRecipesList(): Response<ArrayList<Recipe>>
+    suspend fun getRecipesList(): ArrayList<Recipe>
 
     @GET("{id}/information")
     suspend fun getRecipeDetails(
         @Path("id") recipeId: String
-    ): Response<RecipeDetails>
+    ): RecipeDetails
 
 }

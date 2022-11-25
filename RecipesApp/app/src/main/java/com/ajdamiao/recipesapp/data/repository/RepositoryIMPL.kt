@@ -18,7 +18,6 @@ class RepositoryIMPL: Repository {
     private val BASEURL= BuildConfig.Base_URL
 
     override fun makeRequest(): ApiService {
-
         val client = OkHttpClient.Builder()
             .addInterceptor(TokenInterceptor())
             .build()

@@ -35,7 +35,7 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
         recipeDetailsViewModel.recipeDetails.observe(viewLifecycleOwner){ response ->
             when {
                 response.isLoading -> {
-                    println("Carregnado")
+                    println("Carregando")
                 }
 
                 response.recipe?.imageType?.isNotEmpty() == true -> {

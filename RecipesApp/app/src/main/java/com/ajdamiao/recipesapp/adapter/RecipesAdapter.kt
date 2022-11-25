@@ -37,7 +37,6 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() 
                     txtRecipeName.text = title
                     txtRecipeDescription.text = likes.toString()
                 }
-
             }
         }
     }

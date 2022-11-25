@@ -23,7 +23,7 @@ class HomeViewModel(private val getRecipeListUseCase: GetRecipeListUseCase): Vie
                 }
 
                 is Outcome.Failure -> {
-                    _recipeList.value = RecipeListState(error = result.message ?: "An unexpected error ocurred")
+                    _recipeList.value = RecipeListState(error = result.message ?: "An unexpected error occurred")
                     println("ERROR")
                 }
 

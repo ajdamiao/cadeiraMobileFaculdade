@@ -42,7 +42,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     binding.loading.visibility = View.GONE
                     binding.recyclerView.visibility = View.VISIBLE
                 }
-                response.error.isNotEmpty() -> { binding.loading.text = response.error}
             }
         }
     }

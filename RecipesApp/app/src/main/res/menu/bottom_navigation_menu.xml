@@ -10,9 +10,4 @@
     <item android:id="@+id/menuFavorites"
         android:title="Favorites"
         android:icon="@drawable/ic_favorites"/>
-
-    <item android:id="@+id/menuSearch"
-        android:title="Search"
-        android:icon="@drawable/ic_baseline_search_24"/>
-
 </menu>

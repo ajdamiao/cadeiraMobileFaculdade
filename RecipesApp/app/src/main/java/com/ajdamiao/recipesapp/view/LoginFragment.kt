@@ -24,12 +24,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
       binding = FragmentLoginBinding.bind(view)
       auth = FirebaseAuth.getInstance()
 
-      binding.btnSignUp.setOnClickListener {
+      binding.btnSignInApp.setOnClickListener {
          Navigation.findNavController(requireView()).navigate(R.id.signUpFragment)
       }
 
-      binding.btnLogin.setOnClickListener {
-         signInEmailAndPassword(binding.txtUsername.text.toString(), binding.txtPassword.text.toString())
+      binding.btnSignInApp.setOnClickListener {
+         signInEmailAndPassword(binding.txtEmail.text.toString(), binding.txtPass.text.toString())
       }
    }
 

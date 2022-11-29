@@ -28,6 +28,12 @@ class MainActivity : AppCompatActivity() {
         setupNavController()
         setUpNavigation()
         bottomNavigationListener()
+        hideNavbar()
+        hideToolbar()
+    }
+
+    fun changeToolbarTittle(tittle: String) {
+        binding.toolbarInclude.tittleToolbar.text = title
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -43,10 +49,28 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _: NavController, nd: NavDestination, _: Bundle? ->
             if (nd.id == R.id.homeFragment || nd.id == R.id.signUpFragment || nd.id == R.id.loginFragment) {
                 supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                binding.bottomNavigation.visibility = View.GONE
             } else {
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            }
+        }
+    }
+
+    private fun hideNavbar() {
+        navController.addOnDestinationChangedListener { _: NavController, nd: NavDestination, _: Bundle? ->
+            if (nd.id == R.id.signUpFragment || nd.id == R.id.loginFragment) {
+                binding.bottomNavigation.visibility = View.GONE
+            } else {
                 binding.bottomNavigation.visibility = View.VISIBLE
+            }
+        }
+    }
+
+    private fun hideToolbar() {
+        navController.addOnDestinationChangedListener { _: NavController, nd: NavDestination, _: Bundle? ->
+            if (nd.id == R.id.signUpFragment || nd.id == R.id.loginFragment) {
+                binding.toolbarInclude.toolbar.visibility = View.GONE
+            } else {
+                binding.toolbarInclude.toolbar.visibility = View.VISIBLE
             }
         }
     }
@@ -55,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menuHome -> { navController.navigate(R.id.homeFragment) }
-                R.id.menuFavorites -> { navController.navigate(R.id.recipeDetailsFragment) }
+                R.id.menuFavorites -> { navController.navigate(R.id.favoriteRecipesFragment) }
             }
             true
         }

@@ -22,4 +22,8 @@
         android:id="@+id/signUpFragment"
         android:name="com.ajdamiao.recipesapp.view.SignUpFragment"
         android:label="SignUpFragment" />
+    <fragment
+        android:id="@+id/favoriteRecipesFragment"
+        android:name="com.ajdamiao.recipesapp.view.FavoriteRecipesFragment"
+        android:label="FavoriteRecipesFragment" />
 </navigation>

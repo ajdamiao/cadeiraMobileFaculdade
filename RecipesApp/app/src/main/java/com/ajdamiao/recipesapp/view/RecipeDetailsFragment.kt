@@ -1,5 +1,6 @@
 package com.ajdamiao.recipesapp.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import androidx.fragment.app.Fragment
@@ -25,6 +26,7 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
     private val ingredientsAdapter = IngredientsAdapter()
     private val recipeDetailsViewModel: RecipeDetailsViewModel by viewModel()
     private lateinit var recipe: FavoriteRecipe
+    private lateinit var recipeShare: RecipeDetails
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -68,13 +70,18 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
 
     private fun setupComponents() {
         binding.btnFavorite.setOnClickListener {
-            println("crico " + recipe)
             recipeDetailsViewModel.setRecipeAsFavorite(recipe = recipe)
+        }
+
+        binding.btnShare.setOnClickListener {
+            shareFunction()
         }
     }
 
     private fun setupDetails(response: RecipeDetails) {
         binding.run {
+            recipeShare = response
+
             Glide.with(requireView())
                 .load(response.image)
                 .into(imgRecipeDetails)
@@ -91,4 +98,15 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
             recipe = FavoriteRecipe(response.id.toString(), response.title, response.summary, response.image)
         }
     }
-}
+
+    private fun shareFunction() {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        val ingredients = ArrayList<String>()
+        for(i in 0 until recipeShare.extendedIngredients.size) {
+            ingredients.add(recipeShare.extendedIngredients[i].name)
+        }
+
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, "${recipeShare.title} \n ================= \n Ingredients: \n ${ingredients}  \n ================= \n How to prepare: \n ${Html.fromHtml(recipeShare.instructions)}")
+        sharingIntent.type = "text/plain"
+        startActivity(Intent.createChooser(sharingIntent, "Compartilhar Evento"))
+    }}

@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeToolbarTittle(tittle: String) {
-        binding.toolbarInclude.tittleToolbar.text = title
+        binding.toolbarInclude.tittleToolbar.text = tittle
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpNavigation() {
         navController.addOnDestinationChangedListener { _: NavController, nd: NavDestination, _: Bundle? ->
-            if (nd.id == R.id.homeFragment || nd.id == R.id.signUpFragment || nd.id == R.id.loginFragment) {
+            if (nd.id == R.id.homeFragment || nd.id == R.id.signUpFragment || nd.id == R.id.loginFragment || nd.id == R.id.favoriteRecipesFragment) {
                 supportActionBar?.setDisplayHomeAsUpEnabled(false)
             } else {
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)

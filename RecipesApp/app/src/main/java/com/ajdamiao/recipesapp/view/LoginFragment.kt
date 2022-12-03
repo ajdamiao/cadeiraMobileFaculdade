@@ -44,7 +44,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
          }
          else {
             Toast.makeText(requireContext(),"Erro ao fazer login", Toast.LENGTH_SHORT).show()
-            println(response.getResult())
          }
       }
    }

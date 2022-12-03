@@ -4,10 +4,12 @@
     <item
         android:id="@+id/menuHome"
         android:title="Home"
+        android:iconTint="@color/white"
         android:icon="@drawable/ic_home"
         />
 
     <item android:id="@+id/menuFavorites"
         android:title="Favorites"
+        android:iconTint="@color/white"
         android:icon="@drawable/ic_favorites"/>
 </menu>

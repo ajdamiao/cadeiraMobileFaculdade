@@ -10,10 +10,13 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.ajdamiao.recipesapp.databinding.ActivityMainBinding
 import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,15 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationListener()
         hideNavbar()
         hideToolbar()
+        userIsAlreadyLoggedIn()
+    }
+
+    private fun userIsAlreadyLoggedIn() {
+        auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if(currentUser != null){
+            navController.navigate(R.id.homeFragment)
+        }
     }
 
     fun changeToolbarTittle(tittle: String) {

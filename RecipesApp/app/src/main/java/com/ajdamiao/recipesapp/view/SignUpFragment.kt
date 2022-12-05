@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     private lateinit var binding: FragmentSignUpBinding
     private lateinit var auth: FirebaseAuth
-    lateinit var shared : SharedPreferences
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,7 +26,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             createNewUser(binding.txtEmail.text.toString(), binding.txtPass.text.toString())
         }
     }
-
 
     private fun createNewUser(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { response ->

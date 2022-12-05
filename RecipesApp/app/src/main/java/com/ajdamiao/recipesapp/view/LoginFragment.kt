@@ -24,7 +24,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
       binding = FragmentLoginBinding.bind(view)
       auth = FirebaseAuth.getInstance()
 
-      binding.btnSignInApp.setOnClickListener {
+      binding.btnSignUpApp.setOnClickListener {
          Navigation.findNavController(requireView()).navigate(R.id.signUpFragment)
       }
 

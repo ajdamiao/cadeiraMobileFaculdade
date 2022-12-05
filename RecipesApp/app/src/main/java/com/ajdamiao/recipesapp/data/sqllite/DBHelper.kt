@@ -34,8 +34,6 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         values.put(DBContract.UserEntry.RECIPE_IMAGE, recipe.image)
         values.put(DBContract.UserEntry.RECIPE_DESCRIPTION, recipe.descriptions)
 
-        println("AIUQIUUFAISDSAS:  " + values)
-
         val newRowId = db.insert(TABLE_NAME, null, values)
 
         newRowId.toInt().let {

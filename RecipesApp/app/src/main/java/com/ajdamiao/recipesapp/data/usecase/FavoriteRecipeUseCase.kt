@@ -11,7 +11,6 @@ class FavoriteRecipeUseCase(private val repository: RepositoryIMPL) {
     operator fun invoke(recipe: FavoriteRecipe): Flow<Outcome<Boolean>> = flow {
         if(recipe.title.isNotEmpty()) {
             try{
-                println("aqui")
                 emit(Outcome.Progress())
                 val recipeFavorites = repository.favoriteRecipe(recipe)
                 emit(Outcome.Success(recipeFavorites))
@@ -19,7 +18,6 @@ class FavoriteRecipeUseCase(private val repository: RepositoryIMPL) {
                 emit(Outcome.Failure("Couldn't favorite recipe"))
             }
         } else {
-            println("else0")
             emit(Outcome.Failure("Couldn't favorite recipe"))
         }
     }

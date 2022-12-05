@@ -53,6 +53,13 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
                     setupDetails(response.recipe)
                 }
 
+                response.isLoading -> {
+                    binding.recipeHeader.visibility = View.GONE
+                    binding.recipeDetailsLayout.visibility = View.GONE
+                    binding.loading.visibility = View.VISIBLE
+
+                }
+
                 response.error.isNotEmpty() -> {
                     println("ERROR")
                 }
@@ -94,6 +101,11 @@ class RecipeDetailsFragment : Fragment(R.layout.fragment_recipe_details) {
             ingredientsAdapter.addIngredient(response.extendedIngredients)
             binding.recyclerView2.layoutManager = GridLayoutManager(requireContext(), 2)
             binding.recyclerView2.adapter = ingredientsAdapter
+
+
+            binding.recipeHeader.visibility = View.VISIBLE
+            binding.recipeDetailsLayout.visibility = View.VISIBLE
+            binding.loading.visibility = View.GONE
 
             recipe = FavoriteRecipe(response.id.toString(), response.title, response.summary, response.image)
         }
